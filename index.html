@@ -12,6 +12,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ADD NEW TASK</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+           <div>
+             <label for="bookname" class = "form-label">Book Name</label>
+             <input type="text" class="form-control" id = "bookname">
+           </div>
+
+           <div>
+            <label for="bookauthor" class = "form-label">Book Author</label>
+            <input type="text" class="form-control" id = "bookauthor">
+          </div>
+
+          <div>
+            <label for="quantiy" class = "form-label">Quantity</label>
+            <input type="number" class="form-control" id = "quantity">
+          </div>
+
+          <div>
+            <label for="price" class = "form-label">Price</label>
+            <input type="number" class="form-control" id = "price">
+          </div>
+           
+        </div>
+        <div class="modal-footer">
+         
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -26,7 +68,7 @@
               </ul>
             </div>
             
-            <button class="btn btn-primary" data-bs-toggle = "modal" data-bs-target = "#">
+            <button class="btn btn-primary" data-bs-toggle = "modal" data-bs-target = "#exampleModal">
                 <i class="fas fa-plus"></i>ADD NEW
             </button>
         </div>
