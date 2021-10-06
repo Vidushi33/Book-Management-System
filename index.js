@@ -19,29 +19,22 @@ button.addEventListener('click', function(){
 
 const generateTaskCard = ({id, name, author, quantity, price}) => {
     return(`<div class="col-lg-4 col-md-6 mt-3" id = ${id} key = ${id}>
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-outline-info">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-
-          <button type="button" class="btn btn-outline-danger">
-            <i class="far fa-trash-alt"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="card-body">
-        <h4 class="bookname">${name}</h4>
-        <h5 class="bookauthor">${author}</h5>
-        <h5 class="quantity">${quantity}</h5>
-        <h5 class="price">${price}</h5>
-      </div>
-
-      <div class="card-footer">
-        <button class="btn btn-outline-primary float-end">Open Task</button>
-      </div>
+    <div class="card text-center bg-dark" style="width: 18rem;">
+    <div class="card-header text-white">
+      ${author}
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Book Name : ${name} </li>
+      <li class="list-group-item">Author Name : ${author}</li>
+      <li class="list-group-item">Quantity Required : ${quantity} </li>
+      <li class="list-group-item">Price of Book : ${price} </li>
+      
+      <li class="list-group-item">
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </li>
+     
+    </ul>
+  </div>
   </div>`)
 };
