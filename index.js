@@ -36,7 +36,7 @@ const generateTaskCard = ({id, name, author, quantity, price}) => {
       
       <li class="list-group-item">
         <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" name = ${id} onclick = "deleteTask(this)">Delete</button>
       </li>
      
     </ul>
@@ -62,6 +62,24 @@ const relodeTaskData = () => {
   })
 }
 
+
+const deleteTask = (e) => {
+  swal({
+    title: "Do you want to delete this data ?",
+    icon: "warning",
+    buttons: ["no" , "yes"],
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      const targetID = e.getAttribute("name");
+
+      globalBookData = globalBookData.filter((id) => id.id!=targetID);
+      saveToLocalStorage();
+      window.location.reload();
+     }
+  });
+}
 
 
 
