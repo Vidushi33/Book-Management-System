@@ -1,19 +1,24 @@
+let globalBookData = [];
+
+const taskContents = document.getElementById('taskContentsrow');
+
 const button = document.getElementById('submit_button');
-var id = 1;
+
 button.addEventListener('click', function(){
     const newTaskDetails = {
-        id : id,
+        id : Date.now(),
         name : document.getElementById('bookname').value,
         author : document.getElementById('bookauthor').value,
         quantity : document.getElementById('quantity').value,
         price : document.getElementById('price').value
     };
+    
 
-
-    const taskContents = document.getElementById('taskContentsrow');
+    // const taskContents = document.getElementById('taskContentsrow');
     taskContents.insertAdjacentHTML('beforeend' , generateTaskCard(newTaskDetails));
 
-    id = id +1;
+    globalBookData.push(newTaskDetails);
+    saveToLocalStorage();
 })
 
 
@@ -38,3 +43,25 @@ const generateTaskCard = ({id, name, author, quantity, price}) => {
   </div>
   </div>`)
 };
+
+const saveToLocalStorage = () => {
+  localStorage.setItem('books' , JSON.stringify({booksData : globalBookData}));
+}
+
+const relodeTaskData = () => {
+  const getData = JSON.parse(localStorage.getItem('books'));
+  
+  if(getData){
+    globalBookData = getData.booksData;
+
+  }
+
+  globalBookData.map((data) =>{
+    taskContents.insertAdjacentHTML('beforeend' , generateTaskCard(data));
+    // console.log(rowData);
+  })
+}
+
+
+
+
