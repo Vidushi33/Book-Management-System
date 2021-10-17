@@ -2,7 +2,7 @@ let globalBookData = [];
 
 const taskContents = document.getElementById('taskContentsrow');
 
-const button = document.getElementById('submit_button');
+const button = document.getElementById('submitButton');
 
 button.addEventListener('click', function(){
     const newTaskDetails = {
@@ -35,7 +35,7 @@ const generateTaskCard = ({id, name, author, quantity, price}) => {
       <li class="list-group-item">Price of Book : ${price} </li>
       
       <li class="list-group-item">
-        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary" name = ${id} onclick = "editTask(this)" data-bs-toggle="modal" data-bs-target = "#editModal">Edit</button>
         <button type="button" class="btn btn-danger" name = ${id} onclick = "deleteTask(this)">Delete</button>
       </li>
      
@@ -83,3 +83,39 @@ const deleteTask = (e) => {
 
 
 
+const editTask = (e) => {
+  const editID = e.getAttribute("name");
+  
+  for(let i=0; i<globalBookData.length; i++)
+  {
+    if(globalBookData[i].id  == editID)
+    {
+      document.getElementById('editName').value = globalBookData[i].name;
+      document.getElementById('editAuthor').value = globalBookData[i].author;
+      document.getElementById('editQuantity').value = globalBookData[i].quantity;
+      document.getElementById('editPrice').value = globalBookData[i].price;
+
+      const editBtn = document.getElementById('editButton');
+
+      editBtn.addEventListener('click' , function(){
+
+        const editTaskDetails = {
+          eName : document.getElementById('editName').value,
+          eAuthor : document.getElementById('editAuthor').value,
+          eQuantity : document.getElementById('editQuantity').value,
+          ePrice : document.getElementById('editPrice').value
+        }
+
+        globalBookData[i].name = editTaskDetails.eName;
+        globalBookData[i].author = editTaskDetails.eAuthor;
+        globalBookData[i].quantity = editTaskDetails.eQuantity;
+        globalBookData[i].price = editTaskDetails.ePrice;
+
+        saveToLocalStorage();
+        window.location.reload();
+      })
+    }
+  }
+
+
+}
