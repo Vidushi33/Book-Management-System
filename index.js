@@ -23,7 +23,7 @@ button.addEventListener('click', function(){
 
 document.getElementById('bookname').attributes["required"] = ""
 const generateTaskCard = ({id, name, author, quantity, price}) => {
-    return(`<div class="col-lg-4 col-md-6 mt-3 mb-3 md-ml-3" id = ${id} key = ${id}>
+    return(`<div class="col-lg-4 col-md-6 mt-3 mb-3 md-ml-3 card_center " id = ${id} key = ${id}>
     <div class="card text-center bg-dark" style="width: 18rem;">
     <div class="card-header text-white">
       ${author}

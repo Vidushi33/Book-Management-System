@@ -2,9 +2,37 @@
     margin: 0px;
     padding: 0px;
 }
-
+body, html {
+    /* height: 100%; */
+    margin: 0;
+  }
+  
 .bgimage{
     background-image: url("./bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    
 }
+
+@media only screen and (max-width: 768px) {
+    .card_center{
+        display: flex;
+        justify-content: center;
+    }
+  }
+
+@media (min-width:768px) and (max-width:1900px){
+    .bgimage{
+        height: 100vh;
+    }
+}
+
+@media (min-width:576px) and (max-width:768px){
+    .bgimage{
+        height: 100%;
+    }
+}
+
+  
