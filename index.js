@@ -19,6 +19,7 @@ button.addEventListener('click', function(){
 
     globalBookData.push(newTaskDetails);
     saveToLocalStorage();
+    window.location.reload();
 })
 
 document.getElementById('bookname').attributes["required"] = ""
